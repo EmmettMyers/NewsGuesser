@@ -2,46 +2,29 @@ import './scss/App.css';
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import home from './index.js';
-import { playNormal } from './App.js';
+import { play, playNormal } from './App.js';
 import { useTimer } from 'react-timer-hook';
 
 let wordsGuessed = [];
 export function clearWordsGuessed(){ wordsGuessed = []; }
 
-export default function Game(article){
+function MyTimer({ expiryTimestamp }) {
+  const {
+    seconds, minutes
+  } = useTimer({ expiryTimestamp, onExpire: () => document.getElementById("insertEndGame").style.display = "block" });
+  return (
+    <div>
+      <span>{minutes}</span>:<span>{seconds < 10 && '0'}{seconds}</span>
+    </div>
+  );
+}
 
-  document.getElementById("loader").style.display = "none";
+export default function Game(article){
 
   const time = new Date();
   time.setSeconds(time.getSeconds() + 120);
-  function MyTimer({ expiryTimestamp }) {
-    const {
-      seconds, minutes
-    } = useTimer({ expiryTimestamp, onExpire: () => endGame() });
-    return (
-      <div>
-        <span>{minutes}</span>:<span>{seconds < 10 && '0'}{seconds}</span>
-      </div>
-    );
-  }
 
-  function endGame(){
-    const endScreen = ReactDOM.createRoot(document.getElementById('insertEndGame'));
-    endScreen.render(
-      <div className="absolute h-full w-full">
-        <div className="flex justify-center">
-          <div className="text-7xl z-30 absolute top-40 text-violet-300 font-black leading-tight">Times Up!</div>
-          <div className="text-4xl z-30 absolute top-80 text-yellow-200 font-bold leading-tight">Your score is:</div>
-          <div id="endScore" className="text-9xl z-30 absolute bottom-72 text-yellow-400 font-black leading-tight">{score}</div>
-          <div id="endBtns" className="flex absolute bottom-36">
-            <div onClick={() => playNormal()} className="text-3xl z-30 text-center bg-violet-300 text-violet-900 font-bold rounded-xl p-3 mr-3">Play Again</div>
-            <div onClick={() => home()} className="text-3xl z-30 text-center bg-violet-300 text-violet-900 font-bold rounded-xl p-3 ml-3">Exit To Menu</div>
-          </div>
-          <div className="absolute z-20 w-full h-full bg-black opacity-90"></div>
-        </div>
-      </div>
-    );
-  }
+  document.getElementById("loader").style.display = "none";
   
   const [score, setScore] = useState(0);
 
@@ -49,6 +32,7 @@ export default function Game(article){
     var word = document.getElementById("wordBox").value.toLowerCase();
     if (wordsGuessed.indexOf(word) == -1){
       wordsGuessed.push(word);
+
       var content = article.content.toLowerCase();
       if (content.includes(word)){
         var wordOccurances = 0;
@@ -86,7 +70,20 @@ export default function Game(article){
       <div id="gameScreen" className="absolute flex w-full h-full select-none bg-violet-700 ">
 
         {/* End game screen */}
-        <div id="insertEndGame"></div>
+        <div id="insertEndGame" className="hidden">
+          <div className="absolute h-full w-full">
+            <div className="flex justify-center">
+              <div className="text-7xl z-30 absolute top-40 text-violet-300 font-black leading-tight">Times Up!</div>
+              <div className="text-4xl z-30 absolute top-80 text-yellow-200 font-bold leading-tight">Your score is:</div>
+              <div id="endScore" className="text-9xl z-30 absolute bottom-72 text-yellow-400 font-black leading-tight">{score}</div>
+              <div id="endBtns" className="flex absolute bottom-36">
+                <div onClick={() => play()} className="text-3xl z-30 text-center bg-violet-300 text-violet-900 font-bold rounded-xl p-3 mr-3">Play Again</div>
+                <div onClick={() => home()} className="text-3xl z-30 text-center bg-violet-300 text-violet-900 font-bold rounded-xl p-3 ml-3">Exit To Menu</div>
+              </div>
+              <div className="absolute z-20 w-full h-full bg-black opacity-90"></div>
+            </div>
+          </div>
+        </div>
 
         {/* Point addition showing */}
         <div id="pointAdd" className="hidden shadow2 text-yellow-800 z-10 absolute text-5xl w-36 h-24 rounded-xl bg-yellow-400 font-bold text-center">+400</div>
@@ -118,7 +115,7 @@ export default function Game(article){
           </div>
           {/* input box */}
           <div id="wordInput" className="border-t-2 border-gray-600 w-1/2 absolute bottom-0 bg-violet-400 flex justify-center">
-            <input id="wordBox" className="p-3 text-3xl border-2 border-gray-600 h-2/3 w-2/3 mt-5" type="text"></input>
+            <input id="wordBox" autocomplete="off" className="p-3 text-3xl border-2 border-gray-600 h-2/3 w-2/3 mt-5" type="text"></input>
             <button onClick={() => enterWord()} id="enterBtn" className="text-3xl border-2 border-gray-600 font-bold text-white h-2/3 bg-violet-600 pl-5 pr-5 mt-5">Enter</button>
           </div>
         </div>

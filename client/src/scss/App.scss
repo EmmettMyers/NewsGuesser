@@ -5,7 +5,6 @@ body {
 .shadow {
     filter: drop-shadow(0 0 20px white); 
 }
-
 .shadow2 {
     filter: drop-shadow(0 0 5px black);
 }
@@ -14,10 +13,10 @@ body {
     height: 400px;
 }
 
-#menu:hover {
+#menu:hover, #topicHolder div:hover, #closeTopic:hover {
     cursor: pointer;
-    transition: 0.3s;
-    filter: brightness(75%);
+    transition: 0.2s;
+    filter: brightness(70%);
 }
 
 .homeBtn {
@@ -58,20 +57,9 @@ body {
     padding-top: 22px;
 }
 
-#enterBtn:hover {
-    transition: 0.3s;
-    filter: brightness(80%);
-}
-
-#endBtns div:hover {
+#endBtns div:hover, #enterBtn:hover, #homeLogo:hover {
     cursor: pointer;
     transition: .2s;
-    filter: brightness(80%);
-}
-
-#homeLogo:hover {
-    cursor: pointer;
-    transition: 0.3s;
     filter: brightness(80%);
 }
 

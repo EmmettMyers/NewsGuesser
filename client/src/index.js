@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/index.css';
-import App, { playNormal } from './App';
+import App, { play, pickTopic } from './App';
 
 home();
 
 document.getElementById("homeLogo").addEventListener("click", home);
 document.getElementById("menu").addEventListener("click", menuDrop);
-document.getElementById("menuNormal").addEventListener("click", playNormal);
+document.getElementById("menuNormal").addEventListener("click", play);
+document.getElementById("menuTopics").addEventListener("click", pickTopic);
 
 function home(){
   document.getElementById("loader").style.display = "none";

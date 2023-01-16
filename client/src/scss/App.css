@@ -16,12 +16,12 @@ body {
   height: 400px;
 }
 
-#menu:hover {
+#menu:hover, #topicHolder div:hover, #closeTopic:hover {
   cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-filter: brightness(75%);
-          filter: brightness(75%);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 .homeBtn {
@@ -69,25 +69,10 @@ body {
   padding-top: 22px;
 }
 
-#enterBtn:hover {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
-}
-
-#endBtns div:hover {
+#endBtns div:hover, #enterBtn:hover, #homeLogo:hover {
   cursor: pointer;
   -webkit-transition: .2s;
   transition: .2s;
-  -webkit-filter: brightness(80%);
-          filter: brightness(80%);
-}
-
-#homeLogo:hover {
-  cursor: pointer;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
   -webkit-filter: brightness(80%);
           filter: brightness(80%);
 }

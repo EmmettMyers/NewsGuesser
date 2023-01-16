@@ -8,8 +8,29 @@ const axios = require('axios');
 const { JSDOM } = require('jsdom');
 const { Readability } = require('@mozilla/readability');
 
-app.post('/news', (req, res) => {
+app.use(express.urlencoded());
+app.use(express.json());
+
+app.post('/normal', (req, res) => {
     var url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=f99b16b11daa4107bfbca4ec90cad8f1';
+    axios.get(url).then(function(r1) {
+        var rand = Math.floor(Math.random() * (r1.data.articles.length + 1));
+        var result = r1.data.articles[rand];
+        var img = JSON.stringify(result.urlToImage);
+        var title = JSON.stringify(result.title);
+        axios.get(result.url).then(function(r2) {
+            var dom = new JSDOM(r2.data, { url: result.url });
+            var article = new Readability(dom.window.document).parse();
+            var content = JSON.stringify(article.textContent);
+            var newsSend = [img, title, content];
+            res.send(newsSend);
+        })
+    })
+});
+
+app.post('/topics', (req, res) => {
+    var topic = req.body.topic;
+    var url = 'https://newsapi.org/v2/everything?q=' + topic + '&language=en&apiKey=f99b16b11daa4107bfbca4ec90cad8f1';
     axios.get(url).then(function(r1) {
         var rand = Math.floor(Math.random() * (r1.data.articles.length + 1));
         var result = r1.data.articles[rand];
