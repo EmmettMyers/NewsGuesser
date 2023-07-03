@@ -15,5 +15,5 @@ The server pulls news article data from NewsAPI, then the client-side parses the
 
   <b>Tools used:</b>
  - JavaScript - React, Node, Express
- - CSS - Tailwind, Sass
+ - HTML/CSS - Tailwind, Sass
  - Axios, Readability
