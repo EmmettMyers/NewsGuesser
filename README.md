@@ -4,8 +4,6 @@
 
 <img src="client/public/ng1.png" style="width: 500px" />
 <img src="client/public/ng2.png" style="width: 500px" />
- 
- <a href="https://drive.google.com/uc?export=view&id=1CivO3D31tSY2nE4jLXBnlRRRxNtao_DS"><img src="https://drive.google.com/uc?export=view&id=1CivO3D31tSY2nE4jLXBnlRRRxNtao_DS" style="width: 550px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
 <b>NewsGuesser is a web game in which users have 2 minutes to guess as many words in a news article as possible from seeing only its picture and title.</b><br>
   
