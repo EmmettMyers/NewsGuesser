@@ -1,6 +1,6 @@
 # NewsGuesser
 
-<i>Created: Fall 2022 (College Freshman)</i>
+[Live Demo](https://drive.google.com/file/d/12MqS4YXL6hBH59ZvPJJDdxUdV7nwTFow/view)&nbsp;&nbsp;|&nbsp;&nbsp;<i>Created: Fall 2022 (College Freshman)</i>
 
 <img src="client/public/ng1.png" style="width: 600px" />
 <img src="client/public/ng2.png" style="width: 600px" />
