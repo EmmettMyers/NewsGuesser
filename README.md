@@ -2,8 +2,8 @@
 
 <i>Created: Fall 2022 (College Freshman)</i>
 
-<img src="client/public/ng1.png" style="width: 500px" />
-<img src="client/public/ng2.png" style="width: 500px" />
+<img src="client/public/ng1.png" style="width: 600px" />
+<img src="client/public/ng2.png" style="width: 600px" />
 
 <b>NewsGuesser is a web game in which users have 2 minutes to guess as many words in a news article as possible from seeing only its picture and title.</b><br>
   
