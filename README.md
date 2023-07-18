@@ -2,7 +2,8 @@
 
 <i>Created: Fall 2022 (College Freshman)</i>
 
-<a href="https://drive.google.com/uc?export=view&id=1t00WilcumQ-QP6h-SMJDpsk5Q_P6UbLN"><img src="https://drive.google.com/uc?export=view&id=1t00WilcumQ-QP6h-SMJDpsk5Q_P6UbLN" style="width: 550px; max-width: 100%; height: auto" title="Click to enlarge picture" />
+<img src="client/public/ng1.png" style="width: 500px" />
+<img src="client/public/ng2.png" style="width: 500px" />
  
  <a href="https://drive.google.com/uc?export=view&id=1CivO3D31tSY2nE4jLXBnlRRRxNtao_DS"><img src="https://drive.google.com/uc?export=view&id=1CivO3D31tSY2nE4jLXBnlRRRxNtao_DS" style="width: 550px; max-width: 100%; height: auto" title="Click to enlarge picture" />
 
