@@ -13,7 +13,8 @@
   left: 0;
   right: 0;
   margin: auto;
-  display: none;
+  z-index: 30;
+  padding-bottom: 50px;
 }
 
 #menuDropdown div:hover {

@@ -1,30 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/index.css';
-import App, { play, pickTopic } from './App';
+import Home from './pages/Home';
+import Game from './pages/Game';
+import Loading from './pages/Loading';
+import Navbar from './components/Navbar';
+import EndGame from './pages/EndGame';
 
-home();
+setPage('home');
 
-document.getElementById("homeLogo").addEventListener("click", home);
-document.getElementById("menu").addEventListener("click", menuDrop);
-document.getElementById("menuNormal").addEventListener("click", play);
-document.getElementById("menuTopics").addEventListener("click", pickTopic);
-
-function home(){
-  document.getElementById("loader").style.display = "none";
+function setPage(page, data){
   const screen = ReactDOM.createRoot(document.getElementById('screen'));
-  screen.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+  if (page == 'home'){
+    screen.render(
+      <React.StrictMode>
+        <Navbar />
+        <Home />
+      </React.StrictMode>
+    );
+  } else if (page == 'loading'){
+    screen.render(
+      <React.StrictMode>
+        <Navbar />
+        <Loading />
+      </React.StrictMode>
+    );
+  } else if (page == 'game'){
+    screen.render(
+      <React.StrictMode>
+        <Navbar />
+        <Game 
+          src={data.src} 
+          title={data.title} 
+          content={data.content} 
+          mode={data.mode}  
+        />
+      </React.StrictMode>
+    );
+  }
 }
 
-function menuDrop(){
-  if (document.getElementById("menuDropdown").style.display == "none")
-    document.getElementById("menuDropdown").style.display = "block";
-  else
-    document.getElementById("menuDropdown").style.display = "none";
-}
-
-export default home;
+export default setPage;
